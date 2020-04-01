@@ -1,11 +1,9 @@
-// import express from 'express';
-// import bodyParser from 'body-parser';
 var express = require ('express');
 var bodyParser = require('body-parser');
 const app = express();
 var mongoose = require('mongoose');
 
-//PERSISTÊNCIA
+//Connection String
 mongoose.connect('mongodb+srv://fabio:fabio123@cluster0-waiml.mongodb.net/bd-teste?retryWrites=true&w=majority', 
 {useNewUrlParser:true, useUnifiedTopology: true }
 );
@@ -18,8 +16,8 @@ app.use(bodyParser.json());
 var port = process.env.port || 3000;
 
 //ROTAS
-var indexRoute = require("./routes/index-routes");
-var productRoute = require("./routes/product-routes");
+var indexRoute = require("./src/routes/index-routes");
+var productRoute = require("./src/routes/product-routes");
 
 //Vincular a aplicacao (app) com o motor de rotas
 //Rota geral (teste)
